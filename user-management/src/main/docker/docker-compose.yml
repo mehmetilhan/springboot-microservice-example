@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  app:
+    container_name: user-management-app
+    image: user-management-app
+    build: ./
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgresqluser
+  postgresqluser:
+    image: postgres
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=usermanagementdb

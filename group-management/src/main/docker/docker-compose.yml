@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  app:
+    container_name: 'group-management-app'
+    image: group-management-app
+    build: ./
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgresqlgroup
+  postgresqlgroup:
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=groupmanagementdb

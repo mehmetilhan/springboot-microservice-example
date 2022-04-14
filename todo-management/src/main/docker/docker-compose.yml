@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+  app:
+    container_name: todo-management-app
+    image: todo-management-app
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresqltodo
+      - spbootrabbitmq
+  postgresqltodo:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=todomanagementdb
+  spbootrabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '5672:5672'
+      - '15672:15672'
