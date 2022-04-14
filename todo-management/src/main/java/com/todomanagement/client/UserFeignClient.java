@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 /**
  * @author mehmet
  */
-@FeignClient(name = "UserFeignClient", url = "http://127.0.0.1:8081/auth")
+@FeignClient(name = "UserFeignClient", url = "http://user-management-app:8081/auth")
 public interface UserFeignClient {
 
 

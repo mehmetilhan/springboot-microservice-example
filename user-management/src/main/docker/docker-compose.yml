@@ -1,11 +1,10 @@
 version: '3.1'
 services:
-  app:
+  user-management-app:
     container_name: user-management-app
     image: user-management-app
-    build: ./
     ports:
-      - "8081:8080"
+      - "8081:8081"
     depends_on:
       - postgresqluser
   postgresqluser:
